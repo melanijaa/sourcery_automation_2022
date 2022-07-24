@@ -98,8 +98,10 @@ data.forEach((version) => {
       await page.selectOption("#selectOperationDropdown", {
         label: "Add",
       });
+
       await page.locator("#integerSelect").click();
       await page.locator("#calculateButton").click();
+
       await expect(page.locator("#numberAnswerField")).toHaveValue("48");
     });
   });
