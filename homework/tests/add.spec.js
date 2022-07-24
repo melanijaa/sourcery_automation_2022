@@ -39,17 +39,17 @@ data.forEach((version) => {
 
 data.forEach((version) => {
   test.describe(version + ": Add", () => {
-    test("Adding 0 and -4 results in -4", async ({ page }) => {
+    test("Adding 0 and 4 results in 4", async ({ page }) => {
       await page.goto("https://testsheepnz.github.io/BasicCalculator");
       await page.selectOption("#selectBuild", { label: version });
       await page.locator("#number1Field").type("0");
-      await page.locator("#number2Field").type("-4");
+      await page.locator("#number2Field").type("4");
       await page.selectOption("#selectOperationDropdown", {
         label: "Add",
       });
       await page.locator("#calculateButton").click();
 
-      await expect(page.locator("#numberAnswerField")).toHaveValue("-4");
+      await expect(page.locator("#numberAnswerField")).toHaveValue("4");
     });
   });
 });
@@ -98,10 +98,8 @@ data.forEach((version) => {
       await page.selectOption("#selectOperationDropdown", {
         label: "Add",
       });
-      await page.selectOption("#integerSelect");
-
+      await page.locator("#integerSelect").click();
       await page.locator("#calculateButton").click();
-
       await expect(page.locator("#numberAnswerField")).toHaveValue("48");
     });
   });

@@ -14,5 +14,27 @@ data.forEach((version) => {
 
       await expect(page.locator("#numberAnswerField")).toHaveValue("5");
     });
+
+    test("Concatenating 12.5 and -3.4 results in 12.5-3.4", async ({ page }) => {
+      await page.goto("https://testsheepnz.github.io/BasicCalculator");
+      await page.selectOption("#selectBuild", { label: version });
+      await page.locator("#number1Field").type("12.5");
+      await page.locator("#number2Field").type("-3.4");
+      await page.selectOption("#selectOperationDropdown", { label: "Add" });
+      await page.locator("#calculateButton").click();
+
+      await expect(page.locator("#numberAnswerField")).toHaveValue("12.5-3.4");
+    });
+
+    test("Concatenating -12.5 and 3.4 results in -12.53.4", async ({ page }) => {
+      await page.goto("https://testsheepnz.github.io/BasicCalculator");
+      await page.selectOption("#selectBuild", { label: version });
+      await page.locator("#number1Field").type("-12.5");
+      await page.locator("#number2Field").type("3.4");
+      await page.selectOption("#selectOperationDropdown", { label: "Add" });
+      await page.locator("#calculateButton").click();
+
+      await expect(page.locator("#numberAnswerField")).toHaveValue("-12.53.4");
+    });
   });
 });

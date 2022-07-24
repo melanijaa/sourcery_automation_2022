@@ -91,7 +91,7 @@ data.forEach((version) => {
         await page.selectOption("#selectOperationDropdown", {
           label: "Subtract",
         });
-        await page.selectOption("#integerSelect");
+        await page.locator("#integerSelect").click();
         await page.locator("#calculateButton").click();
   
         await expect(page.locator("#numberAnswerField")).toHaveValue("81");
