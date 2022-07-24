@@ -12,7 +12,7 @@ data.forEach((version) => {
       await page.selectOption("#selectOperationDropdown", { label: "Add" });
       await page.locator("#calculateButton").click();
 
-      await expect(page.locator("#numberAnswerField")).toHaveValue("5");
+      await expect(page.locator("#numberAnswerField")).toHaveValue("23");
     });
 
     test("Concatenating 12.5 and -3.4 results in 12.5-3.4", async ({ page }) => {

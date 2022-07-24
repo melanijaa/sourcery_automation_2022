@@ -59,7 +59,6 @@ data.forEach((version) => {
       await page.locator("#number1Field").type("0");
       await page.locator("#number2Field").type("8");
       await page.selectOption("#selectOperationDropdown", { label: "Divide" });
-      await page.selectOption("#integerSelect");
       await page.locator("#integerSelect").click();
       await page.locator("#calculateButton").click();
 
