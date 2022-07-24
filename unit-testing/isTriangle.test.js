@@ -28,3 +28,19 @@ test('100000, 4, 5 is not triangle', () => {
 test('6.5, 4, 5 is triangle', () => {
     expect(isTriangle(6.5, 4, 5)).toBe(true);
 });
+
+test('0, 0, 0 is not triangle', () => {
+    expect(isTriangle(0, 0, 0)).toBe(false);
+});
+
+test('a, b, c is not triangle', () => {
+    expect(isTriangle('a', 'b', 'c')).toBe(false);
+});
+
+test('3.2, 4.2, 5.2 is triangle', () => {
+    expect(isTriangle(3.2, 4.2, 5.2)).toBe(true);
+});
+
+test('1, 1, 1 is triangle', () => {
+    expect(isTriangle(1, 1, 1)).toBe(true);
+});

@@ -11,10 +11,10 @@ test.describe('Search Results tests', () => {
     await resultsPage.assertNthResultFirstLinkContains(0, 'devbridge.com');
   });
   
-  test('Search Devbridge - second result should contain linkedin', async ({ page }) => {
+  test('Search Devbridge - fourth result should contain linkedin', async ({ page }) => {
     let searchPage = new SearchPage(page);
     await searchPage.navigateTo();
     let resultsPage = await searchPage.search('devbridge');
-    await resultsPage.assertNthResultFirstLinkContains(1, 'linkedin');
+    await resultsPage.assertNthResultFirstLinkContains(3, 'linkedin');
   });
 });
